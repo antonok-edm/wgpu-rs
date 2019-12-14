@@ -19,24 +19,30 @@ exclude = ["etc/**/*", "examples/**/*", "tests/**/*", "Cargo.lock", "target/**/*
 [lib]
 
 [features]
-default = []
+default = ["x11"]
 # Make Vulkan backend available on platforms where it is by default not, e.g. macOS
 vulkan = ["wgn/vulkan-portability"]
+x11 = ["wgn/x11"]
+xcb = ["wgn/xcb"]
 
 [dependencies.wgn]
 package = "wgpu-native"
 version = "0.5"
-#git = "https://github.com/gfx-rs/wgpu"
+git = "https://github.com/antonok-edm/wgpu"
+rev = "xcb-support"
+default-features = false
 
 [dependencies.wgc]
 package = "wgpu-core"
 version = "0.5"
-#git = "https://github.com/gfx-rs/wgpu"
+git = "https://github.com/antonok-edm/wgpu"
+rev = "xcb-support"
 
 [dependencies.wgt]
 package = "wgpu-types"
 version = "0.5"
-#git = "https://github.com/gfx-rs/wgpu"
+git = "https://github.com/antonok-edm/wgpu"
+rev = "xcb-support"
 
 [dependencies]
 arrayvec = "0.5"
