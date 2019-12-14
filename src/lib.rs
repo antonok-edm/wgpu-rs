@@ -593,9 +593,9 @@ impl CreateBufferMapped<'_> {
 
 impl Surface {
     /// Creates a surface from a raw window handle.
-    pub fn create<W: raw_window_handle::HasRawWindowHandle>(window: &W) -> Self {
+    pub unsafe fn create<W: raw_window_handle::HasRawWindowHandle>(window: &W) -> Self {
         Surface {
-            id: wgn::wgpu_create_surface(window.raw_window_handle()),
+            id: wgn::wgpu_create_surface(window),
         }
     }
 

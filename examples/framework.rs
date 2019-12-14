@@ -73,7 +73,7 @@ async fn run_async<E: Example>(title: &str) {
         }
         let window = builder.build(&event_loop).unwrap();
         let size = window.inner_size();
-        let surface = wgpu::Surface::create(&window);
+        let surface = unsafe { wgpu::Surface::create(&window) };
         (window, size, surface)
     };
 
